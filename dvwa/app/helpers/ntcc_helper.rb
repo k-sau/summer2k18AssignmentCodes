@@ -1,0 +1,2 @@
+module NtccHelper
+end

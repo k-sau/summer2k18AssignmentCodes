@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Damn Vulnerable Web Page</title>
+    <script type="text/javascript">
+        function escape(str){
+          return str.replace(/\&/g, '&amp;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\</g, '&lt;')
+            .replace(/\'/g, '&#x27')
+            .replace(/\"/g, '&quot;')
+            .replace(/\//g, '&#x2F');
+        }
+    </script>
+    <script type="text/javascript">
+      window.onload = function() {
+        let queryData = new URLSearchParams(window.location.search);
+        let val = queryData.get("data");
+
+        document.getElementById("userName").innerHTML = escape(val);
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="userName"></h1>
+  </body>
+</html>

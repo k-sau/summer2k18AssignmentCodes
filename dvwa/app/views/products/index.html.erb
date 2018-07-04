@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NTCC ASSIGNMENT</title>
+  </head>
+  <body>
+    <h1>Add new product</h1>
+    <%= form_for @newProducts, url: {action: "create"} do |f| %>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.text_area :description, size: "60x12" %>
+    <br><br>
+    <%= f.submit "Create" %>
+    <% end %>
+    <br><br>
+    <h1>List of Products:</h1>
+    <% @products.each do |product| %>
+      <h3> <%= product.name %> </h3>
+      <p><%= product.description %></p>
+    <% end %>
+  </body>
+</html>
