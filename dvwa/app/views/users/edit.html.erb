@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Edit admin privilege</h3>
+    <%= form_tag('user-update') do %>
+    <%= text_field_tag 'name', 'Enter name of the User' %>
+    <br><br>
+    <%= submit_tag "Update" %>
+    <% end %>
+
+    <% @users.each do |usr| %>
+      <p><%=usr.name %>   <%= usr.email %>   <b>isadmin:</b> <%= usr.admin %> </p>
+    <% end %>
+  </body>
+</html>

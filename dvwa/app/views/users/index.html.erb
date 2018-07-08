@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Users</title>
+  </head>
+  <body>
+    <%= form_for @user, url: {action: 'create'} do |f| %>
+    <%= f.text_field :name, :value => 'Name' %>
+    <br><br>
+    <%= f.text_field :email, :value => 'Email' %>
+    <br><br>
+    <%= f.text_field :admin, :value => 0 %>
+    <br><br>
+    <%= f.submit "Create" %>
+    <% end %>
+
+    <h3>List of users</h3>
+    <% @users.each do |usr| %>
+      <p><%=usr.name %>   <%= usr.email %>   <b>isadmin:</b> <%= usr.admin %> </p>
+    <% end %>
+  </body>
+</html>
