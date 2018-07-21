@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p><%= @list.split() %></p>
+
+    <%= form_tag do %>
+      <%= select_tag "file", options_for_select(@list.split())%>
+      <%= submit_tag "View File" %>
+    <%  end %>
+  </body>
+</html>
