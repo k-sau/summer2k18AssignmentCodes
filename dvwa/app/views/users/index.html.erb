@@ -5,19 +5,22 @@
     <title>Add Users</title>
   </head>
   <body>
-    <%= form_for @user, url: {action: 'create'} do |f| %>
-    <%= f.text_field :name, :value => 'Name' %>
-    <br><br>
-    <%= f.text_field :email, :value => 'Email' %>
-    <br><br>
-    <%= f.text_field :admin, :value => 0 %>
-    <br><br>
-    <%= f.submit "Create" %>
-    <% end %>
+    <div class="col-sm-2">
+      <h3>Create user</h3>
+      <%= form_for @user, class: 'form-group', url: {action: 'create'} do |f| %>
+      <%= f.text_field :name, :value => 'Name', class: 'form-control' %>
+      <br><br>
+      <%= f.text_field :email, :value => 'Email', class: 'form-control' %>
+      <br><br>
+      <%= f.text_field :admin, :value => 0, class: 'form-control' %>
+      <br><br>
+      <%= f.submit "Create", class: 'btn btn-primary' %>
+      <% end %>
 
-    <h3>List of users</h3>
-    <% @users.each do |usr| %>
-      <p><%=usr.name %>   <%= usr.email %>   <b>isadmin:</b> <%= usr.admin %> </p>
-    <% end %>
+      <h3>List of users</h3>
+      <% @users.each do |usr| %>
+        <p><%=usr.name %>   <%= usr.email %>   <b>isadmin:</b> <%= usr.admin %> </p>
+      <% end %>
+  </div>
   </body>
 </html>

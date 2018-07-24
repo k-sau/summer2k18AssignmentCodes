@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <p><%= @list.split() %></p>
 
-    <%= form_tag do %>
-      <%= select_tag "file", options_for_select(@list.split())%>
-      <%= submit_tag "View File" %>
-    <%  end %>
-  </body>
-</html>
+    <div id="container">
+      <h3>Local File Read & Remote Code Execution</h3>
+      <br><br><br>
+      <%= form_tag do %>
+        <div class="form-group">
+          <div class="col-sm-2">
+            <%= select_tag "file", options_for_select(@list.split()), class: "form-control"%>
+          </div>
+          <%= submit_tag "View File", class: "btn btn-primary" %>
+        </div>
+      <%  end %>
+    </div>
