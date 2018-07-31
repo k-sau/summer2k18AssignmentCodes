@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    function escape(str){
+      return str.replace(/\&/g, '&amp;')
+        .replace(/\>/g, '&gt;')
+        .replace(/\</g, '&lt;')
+        .replace(/\'/g, '&#x27')
+        .replace(/\"/g, '&quot;')
+        .replace(/\//g, '&#x2F');
+    }
+</script>
+<script type="text/javascript">
+  window.onload = function() {
+    let queryData = new URLSearchParams(window.location.search);
+    let val = queryData.get("data");
+
+    document.getElementById("userName").innerHTML = escape(val);
+    document.getElementById("info").innerHTML = "";
+  }
+</script>
+
+<h1 id="userName" class="display-1">Cross Site Scripting</h1>
+<p id="info" class="h3 display-2">Pass attack vector to <mark>data</mark> query parameter</p>

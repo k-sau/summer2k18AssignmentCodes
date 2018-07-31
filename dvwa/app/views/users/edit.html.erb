@@ -6,14 +6,17 @@
   </head>
   <body>
     <h3>Edit admin privilege</h3>
-    <%= form_tag('user-update') do %>
-    <%= text_field_tag 'name', 'Enter name of the User' %>
-    <br><br>
-    <%= submit_tag "Update" %>
+    <div class="col-sm-2">
+      <%= form_tag('user-update', class: 'form-group') do %>
+      <%= text_field_tag 'name', 'Enter name of the User', class: 'form-control' %>
+      <br><br>
+      <%= submit_tag "Update", class: 'btn btn-primary' %>
     <% end %>
+
 
     <% @users.each do |usr| %>
       <p><%=usr.name %>   <%= usr.email %>   <b>isadmin:</b> <%= usr.admin %> </p>
     <% end %>
+    </div>
   </body>
 </html>

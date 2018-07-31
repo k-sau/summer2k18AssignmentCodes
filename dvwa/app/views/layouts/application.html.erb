@@ -11,7 +11,28 @@
 
   <body>
     <div id="container">
-      <%= yield %>      
+      <div class="jumbotron">
+        <h1 class="display-4">Damn Vulnerable Web Application</h1>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="/ntcc/xss" class="nav-link active pull-left" ><h2>Cross Site Scripting</h3></a>
+          </li>
+          <li class="nav-item">
+            <a href="/ntcc/csrf" class="nav-link active pull-left" ><h2>Cross Site Request Forgery</h3></a>
+          </li>
+          <li class="nav-item">
+            <a href="/ntcc/sql" class="nav-link active pull-left" ><h2>SQL Injection</h3></a>
+          </li>
+          <li class="nav-item">
+            <a href="/ntcc/local-file-read" class="nav-link active pull-left" ><h2>Local File Read</h3></a>
+          </li>
+          <li class="nav-item">
+            <a href="/ntcc/local-file-read" class="nav-link active pull-left" ><h2>Remote Code Execution</h3></a>
+          </li>
+        </li>
+        </ul>
+      </div>
+      <%= yield %>
     </div>
   </body>
 </html>

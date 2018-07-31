@@ -10,7 +10,11 @@ class FilesController < ApplicationController
   end
 
   def show
-    @fileContent = `cat textFiles/#{@@fileName}`
+    if !@@fileName.match(/^(([\w])|(\.)|(\-)|( ))*$/).nil?
+      @fileContent = `cat "textFiles/#{@@fileName}"`
+    else
+      redirect_to :action => 'index'
+    end
   end
 
 end
