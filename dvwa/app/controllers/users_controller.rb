@@ -10,19 +10,19 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:name, :email, :admin))
     @user.save
   end
-=begin
-  Vulnerable Code
-  def edit
-    @users = User.all
+
+  #Vulnerable Code
+  def update
     # Thanks to https://rails-sqli.org/
-    User.update("admin=1 WHERE name LIKE '%#{params[:name]}%'")
+    User.update_all("admin=0 WHERE name LIKE '%#{params[:name]}%'")
   end
-=end
+
 
   def edit
     @users = User.all
   end
 
+=begin
   def update
     check_for_malicious_character = params[:name].match(/^[a-zA-Z]*$/)
     if !check_for_malicious_character.nil?
@@ -31,5 +31,5 @@ class UsersController < ApplicationController
       redirect_to :action => 'edit'
     end
   end
-
+=end
 end

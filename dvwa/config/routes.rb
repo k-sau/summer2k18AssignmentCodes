@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get 'ntcc/sql/user-update', to: 'users#edit'
   match 'ntcc/sql/user-update' => 'users#update', :via => :post
   match 'ntcc/sql', to: 'users#create', :via => :post
+  get 'test/sankalp', to: 'test#index'
+
 
 end

@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function escape(str){
       return str.replace(/\&/g, '&amp;')
         .replace(/\>/g, '&gt;')
@@ -18,5 +18,17 @@
   }
 </script>
 
+-->
+
+<script type = " text/javascript ">
+
+  window.onload = function() {
+    let queryData = new URLSearchParams( window.location.search );
+    let val = queryData.get("data");
+    document.getElementById("userName").innerHTML = val;
+
+  }
+
+</script>
 <h1 id="userName" class="display-1">Cross Site Scripting</h1>
 <p id="info" class="h3 display-2">Pass attack vector to <mark>data</mark> query parameter</p>

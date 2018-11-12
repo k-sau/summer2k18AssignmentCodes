@@ -9,6 +9,12 @@ class FilesController < ApplicationController
     redirect_to :action => 'show'
   end
 
+  #Vulnerable code
+  def show
+    @fileContent = `cat textFiles/#{@@fileName}`
+  end
+
+=begin
   def show
     if !@@fileName.match(/^(([\w])|(\.)|(\-)|( ))*$/).nil?
       @fileContent = `cat "textFiles/#{@@fileName}"`
@@ -16,5 +22,5 @@ class FilesController < ApplicationController
       redirect_to :action => 'index'
     end
   end
-
+=end
 end
